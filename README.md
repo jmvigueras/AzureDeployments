@@ -1,7 +1,6 @@
 # Examples of Fortinet deployments in Azure Cloud
-## You will find Terraform script for deploying to Azure Cloud
 
-A Terraform scripts to deploy a FortiGate-VM Cluster on Azure
+### A Terraform scripts to deploy a FortiGate-VM Cluster on Azure
 
 ## Requirements
 * [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) >= 0.12.0
