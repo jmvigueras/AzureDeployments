@@ -2,9 +2,10 @@
 ## Introduction
 ## This topology is only recommended for using with FOS 7.0.5 and later.
 ## Since it needs FSO 7.0 that supports 3 ports only HA setup
-## port1 - hamgmt/hasync
-## port2 - public/untrust
-## port3 - private/trust
+* port1 - hamgmt/hasync
+* port2 - public/untrust
+* port3 - private/trust
+
 A Terraform script to deploy a FortiGate-VM Cluster on Azure
 
 ## Requirements
@@ -13,13 +14,13 @@ A Terraform script to deploy a FortiGate-VM Cluster on Azure
 * Terraform Provider Template >= 2.2.0
 * Terraform Provider Random >= 3.1.0
 
-
 ## Deployment overview
 Terraform deploys the following components:
-   - Azure Virtual Network with 3 subnets
+   - Azure Virtual Network (vnet) with 3 subnets as hub vnet (subnets: mgmt-ha, public, private)
+   - Two vnet as spokes peered with firewall vnet (vnet-spokea, vnet-spokeb)
    - Two FortiGate-VM (BYOL/PAYG) instances with three NICs. (default PAYG)
    - Firewalls rules to allow traffic E-W spokes, E-W spoke-onprem, N-S spoke-publicç
-   - IPSEC site to site to on-premise FGT (config for on-prem device should be completed and apply manualy)
+   - IPSEC site to site to on-premise firewall (config example for on-prem device should be completed and apply manualy)
    - Two Ubuntu Client instance in SpokeA and SpokeB subnets 
 
 ## Diagram solution
