@@ -4,7 +4,7 @@ variable "client_id" {}
 variable "client_secret" {}
 variable "tenant_id" {}
 
-# GCP resourcers prefix description
+# Azure resourcers prefix description
 variable "prefix" {
   type    = string
   default = "terraform"
@@ -25,7 +25,7 @@ variable "site-azure-cidr" {
 }
 
 
-# GCP resourcers prefix description
+# Azure resourcers prefix description
 variable "tag_env" {
   type    = string
   default = "terraform-deploy"

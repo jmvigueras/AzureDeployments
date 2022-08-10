@@ -1,10 +1,10 @@
 // Resource Group
 
 resource "azurerm_resource_group" "myterraformgroup" {
-  name     = "jvigueras-demo-hub-spoke"
+  name     = "${var.prefix}-rg"
   location = var.location
 
   tags = {
-    environment = "jvigueras demo hub spoke"
+    environment = var.tag_env
   }
 }

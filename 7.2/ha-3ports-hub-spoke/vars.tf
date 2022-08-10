@@ -4,6 +4,21 @@ variable "client_id" {}
 variable "client_secret" {}
 variable "tenant_id" {}
 
+# Azure resourcers prefix description
+variable "prefix" {
+  type    = string
+  default = "terraform"
+}
+
+variable "site-azure-cidr" {
+  default = "172.31.0.0/16"
+}
+
+# Azure resourcers prefix description
+variable "tag_env" {
+  type    = string
+  default = "terraform-deploy"
+}
 
 //  For HA, choose instance size that support 4 nics at least
 //  Check : https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes
@@ -94,52 +109,57 @@ variable "adminsport" {
   default = "8443"
 }
 
+variable "adminscidr" {
+  type    = string
+  default = "0.0.0.0/0"
+}
+
+variable "spokessupernet"{
+  default = "172.31.0.0/16"
+}
+
 variable "spokeacidr" {
-  default = "172.2.0.0/16"
+  default = "172.31.32.0/20"
 }
 
 variable "spokeasubnetcidr" {
-  default = "172.2.0.0/24"
+  default = "172.31.32.0/24"
 }
 
 variable "spokebcidr" {
-  default = "172.3.0.0/16"
+  default = "172.31.48.0/20"
 }
 
 variable "spokebsubnetcidr" {
-  default = "172.3.0.0/24"
+  default = "172.31.48.0/24"
 }
 
 variable "vnetcidr" {
-  default = "172.1.0.0/16"
+  default = "172.31.0.0/20"
 }
 
 variable "publiccidr" {
-  default = "172.1.0.0/24"
+  default = "172.31.0.0/24"
 }
 
 variable "privatecidr" {
-  default = "172.1.1.0/24"
+  default = "172.31.1.0/24"
 }
 
 variable "protectedacidr" {
-  default = "172.1.10.0/24"
-}
-
-variable "protectedbcidr" {
-  default = "172.1.11.0/24"
+  default = "172.31.10.0/24"
 }
 
 variable "hasynccidr" {
-  default = "172.1.2.0/24"
+  default = "172.31.2.0/24"
 }
 
 variable "hamgmtcidr" {
-  default = "172.1.3.0/24"
+  default = "172.31.3.0/24"
 }
 
 variable "activeport1" {
-  default = "172.1.3.10"
+  default = "172.31.3.10"
 }
 
 variable "activeport1mask" {
@@ -147,7 +167,7 @@ variable "activeport1mask" {
 }
 
 variable "activeport2" {
-  default = "172.1.0.10"
+  default = "172.31.0.10"
 }
 
 variable "activeport2mask" {
@@ -155,7 +175,7 @@ variable "activeport2mask" {
 }
 
 variable "activeport3" {
-  default = "172.1.1.10"
+  default = "172.31.1.10"
 }
 
 variable "activeport3mask" {
@@ -163,7 +183,7 @@ variable "activeport3mask" {
 }
 
 variable "activeport4" {
-  default = "172.1.2.10"
+  default = "172.31.2.10"
 }
 
 variable "activeport4mask" {
@@ -171,7 +191,7 @@ variable "activeport4mask" {
 }
 
 variable "passiveport1" {
-  default = "172.1.3.11"
+  default = "172.31.3.11"
 }
 
 variable "passiveport1mask" {
@@ -179,7 +199,7 @@ variable "passiveport1mask" {
 }
 
 variable "passiveport2" {
-  default = "172.1.0.11"
+  default = "172.31.0.11"
 }
 
 variable "passiveport2mask" {
@@ -187,7 +207,7 @@ variable "passiveport2mask" {
 }
 
 variable "passiveport3" {
-  default = "172.1.1.11"
+  default = "172.31.1.11"
 }
 
 variable "passiveport3mask" {
@@ -195,7 +215,7 @@ variable "passiveport3mask" {
 }
 
 variable "passiveport4" {
-  default = "172.1.2.11"
+  default = "172.31.2.11"
 }
 
 variable "passiveport4mask" {
@@ -203,15 +223,15 @@ variable "passiveport4mask" {
 }
 
 variable "port1gateway" {
-  default = "172.1.3.1"
+  default = "172.31.3.1"
 }
 
 variable "port2gateway" {
-  default = "172.1.0.1"
+  default = "172.31.0.1"
 }
 
 variable "port3gateway" {
-  default = "172.1.1.1"
+  default = "172.31.1.1"
 }
 
 variable "bootstrap-active" {
