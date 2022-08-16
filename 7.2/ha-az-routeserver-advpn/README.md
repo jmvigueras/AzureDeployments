@@ -1,7 +1,6 @@
-# Deployment of a FortiGate-VM (BYOL/PAYG) Cluster on the Azure with 3 ports
+# Deployment of a FortiGate-VM (BYOL/PAYG) Cluster on the Azure
 ## Introduction
-### This topology is only recommended for using with FOS 7.0.5 and later.
-### Since it needs FSO 7.0 that supports 3 ports only HA setup
+### This topology is only recommended for using with FOS 7.0.5 and later, since it needs FSO 7.0 that supports 3 ports only HA setup
 * port1 - hamgmt/hasync
 * port2 - public/untrust
 * port3 - private/trust
@@ -27,7 +26,7 @@ Terraform deploys the following components:
    - BGP peering among cluster and Azure Route Server instances, fortigate cluster announcing default route to vnet-spokec.
    - OSPF routing between on-prem spoke sites.
    - 4 publics IPs:
-      - 2 public IPs for management of fortigates
+      - 2 public IPs for fortigate units management
       - 1 cluster public IP for Internet access (cluster-public-ip, this IP is shared between cluster and updated by SDN Connector in case of failure)
       - 1 cluster public IP for ADVPN tunnel formation (cluster-sdwan-ip, , this IP is shared between cluster and updated by SDN Connector in case of failure)
 
