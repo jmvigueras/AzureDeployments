@@ -1,6 +1,6 @@
 # Deployment of a FortiGate-VM (BYOL/PAYG) Cluster on the Azure
 ## Introduction
-### This topology is only recommended for using with FOS 7.0.5 and later, since it needs FSO 7.0 that supports 3 ports only HA setup
+### This topology is only recommended for using with FOS 7.0.5 and later, since FSO 7.0 3 ports only HA setup is supported.
 * port1 - hamgmt/hasync
 * port2 - public/untrust
 * port3 - private/trust
