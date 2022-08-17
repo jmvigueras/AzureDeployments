@@ -1,7 +1,6 @@
-# Deployment of a FortiGate-VM (BYOL/PAYG) Cluster on the Azure with 3 ports
+# Deployment of a FortiGate-VM (BYOL/PAYG) Cluster on the Azure with Terraform
 ## Introduction
-### This topology is only recommended for using with FOS 7.0.5 and later.
-### Since it needs FSO 7.0 that supports 3 ports only HA setup
+### This topology is only recommended for using with FOS 7.0.5 and later, since FSO 7.0 3 ports only HA setup is supported.
 * port1 - hamgmt/hasync
 * port2 - public/untrust
 * port3 - private/trust
@@ -71,7 +70,7 @@ $ terraform destroy
 ```
 
 # Support
-This a personal repository with goal of testing and demo Fortinet solutions on the Cloud. No support is provided and must be used by your own responsability. Cloud Providers will charge for this deployments, soy take it in count before proceed.
+This a personal repository with goal of testing and demo Fortinet solutions on the Cloud. No support is provided and must be used by your own responsability. Cloud Providers will charge for this deployments, please take it in count before proceed.
 
 ## License
 Based on Fortinet repositories with original [License](https://github.com/fortinet/fortigate-terraform-deploy/blob/master/LICENSE) © Fortinet Technologies. All rights reserved.
