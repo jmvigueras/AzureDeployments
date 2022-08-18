@@ -29,6 +29,10 @@ Terraform deploys the following components:
       - 2 public IPs for fortigate units management
       - 1 cluster public IP for Internet access (cluster-public-ip, this IP is shared between cluster and updated by SDN Connector in case of failure)
       - 1 cluster public IP for ADVPN tunnel formation (cluster-sdwan-ip, , this IP is shared between cluster and updated by SDN Connector in case of failure)
+   - Two complete remote sites (site1 and site2) deployed on Azure as well, acting as remote on-prem sites for testing.
+      - 1 FGT VM in each site for ADVPN to HUB
+      - 1 vnet network with 3 subnets (public, private and mgmt/ha)
+      - 1 test vm for testing
 
 (Deployment of Azure Route Server could take over 10min to complete)
 

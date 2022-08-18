@@ -160,8 +160,6 @@ data "template_file" "passiveFortiGate" {
     routeprivate_route_0  = "default"
     routespoke_name       = azurerm_route_table.vnet-rt-spoke.name
     routespoke_route_0    = "default"
-    //routespoke_route_1    = "vnet-spoke-to-spoke"
-    //routespoke_route_2    = "vnet-spoke-to-advpn"
 
     spokes-onprem-cidr        = var.spokes-onprem-cidr
     site-azure-cidr           = var.site-azure-cidr

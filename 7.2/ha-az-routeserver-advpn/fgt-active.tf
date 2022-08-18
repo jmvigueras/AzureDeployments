@@ -153,8 +153,8 @@ data "template_file" "activeFortiGate" {
     vnetspokeb      = azurerm_virtual_network.vnet-spokeb.name
     vnetspokec      = azurerm_virtual_network.vnet-spokec.name
     
-    rs-ip1          = var.spokec-rs-ip1
-    rs-ip2          = var.spokec-rs-ip2
+    rs-ip1          = cidrhost(var.spokecsubnetrouteserver,4)
+    rs-ip2          = cidrhost(var.spokecsubnetrouteserver,5)
     bgp-asn         = var.fgt-bgp-asn
 
     cluster-public-ip     = azurerm_public_ip.cluster-public-ip.name
@@ -163,8 +163,6 @@ data "template_file" "activeFortiGate" {
     routeprivate_route_0  = "default"
     routespoke_name       = azurerm_route_table.vnet-rt-spoke.name
     routespoke_route_0    = "default"
-    //routespoke_route_1    = "vnet-spoke-to-spoke"
-    //routespoke_route_2    = "vnet-spoke-to-advpn"
 
     spokes-onprem-cidr        = var.spokes-onprem-cidr
     site-azure-cidr           = var.site-azure-cidr

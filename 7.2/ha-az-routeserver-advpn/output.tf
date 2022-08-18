@@ -42,3 +42,19 @@ output "j_advpn_ipsec-psk-key" {
 output "k_advpn-public-ip" {
   value = azurerm_public_ip.cluster-advpn-ip.ip_address
 }
+
+output "l_Site1MGMTIP" {
+  value = "https://${azurerm_public_ip.site1-mgmt-ip.ip_address}:${var.adminsport}"
+}
+
+output "m_Site2MGMTIP" {
+  value = "https://${azurerm_public_ip.site2-mgmt-ip.ip_address}:${var.adminsport}"
+}
+
+output "n_TestVMSite1IP"{
+  value = azurerm_network_interface.ni-vm-site1.private_ip_address
+}
+
+output "o_TestVMSite2IP"{
+  value = azurerm_network_interface.ni-vm-site2.private_ip_address
+}

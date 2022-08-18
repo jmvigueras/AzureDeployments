@@ -10,12 +10,6 @@ variable "prefix" {
   default = "terraform"
 }
 
-// Variables IPSEC VPN tunnel
-# Public IP for IPSEC tunnels - FGT on-prem
-variable "ip-public-site-onprem" {
-  default = "127.0.0.1"
-}
-
 variable "spokes-onprem-cidr" {
   default = "192.168.0.0/16"
 }
@@ -134,10 +128,6 @@ variable "fgt-bgp-asn" {
   default = "65001"
 }
 
-variable "spokessupernet"{
-  default = "172.31.0.0/16"
-}
-
 variable "spokeacidr" {
   default = "172.31.32.0/23"
 }
@@ -164,14 +154,6 @@ variable "spokecsubnetcidr" {
 
 variable "spokecsubnetrouteserver" {
   default = "172.31.51.0/24"
-}
-
-variable "spokec-rs-ip1" {
-  default = "172.31.51.4"
-}
-
-variable "spokec-rs-ip2" {
-  default = "172.31.51.5"
 }
 
 variable "vnetcidr" {
@@ -294,6 +276,11 @@ variable "bootstrap-passive" {
   default = "config-passive.conf"
 }
 
+variable "bootstrap-site" {
+  // Change to your own path
+  type    = string
+  default = "config-site.conf"
+}
 
 // license file for the active fgt
 variable "license" {
