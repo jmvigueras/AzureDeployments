@@ -79,6 +79,10 @@ h_Username = <FGT user and TestVM>
 i_Password = <FGT Password and TestVM>
 j_ipsec-psk-key = <IPSEC PSK key>
 k_advpn-public-ip = <Cluster Public IP for ADVPN>
+l_Site1MGMTIP = <Site1 FGT Management URL Public IP>
+m_Site2MGMTIP = <Site2 FGT Management URL Public IP>
+n_TestVMSite1IP = <Site1 spoke VM IP>
+o_TestVMSite2IP = <Site2 spoke VM IP>
 ```
 
 ## Destroy the instance
