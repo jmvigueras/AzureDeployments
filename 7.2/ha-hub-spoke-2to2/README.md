@@ -13,6 +13,13 @@ A Terraform script to deploy a FortiGate-VM Cluster on Azure
 * Terraform Provider Template >= 2.2.0
 * Terraform Provider Random >= 3.1.0
 
+## License
+- The terms for the FortiGate PAYG or BYOL image in the Azure Marketplace needs to be accepted once before usage. This is done automatically during deployment via the Azure Portal. For the Azure CLI the commands below need to be run before the first deployment in a subscription.
+  - BYOL
+`az vm image terms accept --publisher fortinet --offer fortinet_fortigate-vm_v5 --plan fortinet_fg-vm`
+  - PAYG
+`az vm image terms accept --publisher fortinet --offer fortinet_fortigate-vm_v5 --plan fortinet_fg-vm_payg_2022`
+
 ## Deployment overview
 Terraform deploys the following components:
    - Azure Virtual Network (vnet) with 3 subnets as hub vnet (subnets: mgmt-ha, public, private)
