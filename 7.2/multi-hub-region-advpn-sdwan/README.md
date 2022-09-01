@@ -6,7 +6,7 @@
 * port3 - private/trust
 * port4 - sdwan/advpn
 
-A Terraform script to deploy a FortiGate-VM Cluster on Azure
+A Terraform script to deploy a fully demo enviroment multi region and multi HUB and hub-spoke.
 
 ## Requirements
 * [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html) >= 0.12.0
@@ -40,10 +40,10 @@ Terraform deploys the following components:
 
 
 ## Deployment considerations:
-      - Azure Route Server could take over 10min to complete
-      - Virtual Netwok Gateway could take over 20min to complete
-      - If "terraform apply" fails because a timeout, just apply it again and will complete the deployment. 
-      - You will be charged for this deployment
+   - Azure Route Server could take over 10min to complete
+   - Virtual Netwok Gateway could take over 20min to complete
+   - If "terraform apply" fails because a timeout, just apply it again and will complete the deployment. 
+   - You will be charged for this deployment
 
 ## Diagram solution
 
