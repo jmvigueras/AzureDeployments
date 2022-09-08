@@ -4,7 +4,7 @@ variable "client_id" {}
 variable "client_secret" {}
 variable "tenant_id" {}
 
-# GCP resourcers prefix description
+# Azure resourcers prefix description
 variable "prefix" {
   type    = string
   default = "terraform"
@@ -20,7 +20,7 @@ variable "s2s-ipsec-psk" {
   default = "sample-password"
 }
 
-# Azure resourcers prefix description
+# Azure resourcers tag
 variable "tag_env" {
   type    = string
   default = "terraform-deploy"
@@ -33,16 +33,19 @@ variable "size" {
   default = "Standard_F4"
 }
 
+//For testing VM
 variable "size-vm" {
   type    = string
   default = "Standard_B1ls"
 }
 
+//Region for HUB A deployment
 variable "regiona" {
   type    = string
   default = "francecentral"
 }
 
+//Region for HUB B deployment
 variable "regionb" {
   type    = string
   default = "eastus2"
@@ -108,25 +111,30 @@ variable "adminscidr" {
   default = "0.0.0.0/0"
 }
 
+// BGP ASN for FGT cluster in Region A
 variable "za-fgt-bgp-asn" {
   type    = string
   default = "65001"
 }
 
+// BGP ASN for FGT cluster in Region B
 variable "zb-fgt-bgp-asn" {
   type    = string
   default = "65002"
 }
 
+// BGP ASN for sites
 variable "sites-bgp-asn" {
   type    = string
   default = "65011"
 }
 
+// CIDR range for entire network sites
 variable "spokes-onprem-cidr" {
   default = "192.168.0.0/16"
 }
 
+// CIDR range for entire network on azure
 variable "site-azure-cidr" {
   default = "172.31.0.0/16"
 }
@@ -161,30 +169,46 @@ variable "vnet-spoked-cidr-regionb" {
   default = "172.31.50.0/23"
 }
 
+// Config template for active fortigate member in cluster
 variable "bootstrap-active" {
   // Change to your own path
   type    = string
   default = "./templates/config-active.conf"
 }
 
+// Config template for passive fortigate member in cluster
 variable "bootstrap-passive" {
   // Change to your own path
   type    = string
   default = "./templates/config-passive.conf"
 }
 
-// license file for the active fgt
-variable "license-active" {
+// license file for the active fgt in Region A
+variable "za-license-active" {
   // Change to your own byol license file, license.lic
   type    = string
-  default = "./licenses/license-active.txt"
+  default = "./licenses/za-license-active.txt"
 }
 
-// license file for the passive fgt
-variable "license-passive" {
+// license file for the passive fgt in Region A
+variable "za-license-passive" {
   // Change to your own byol license file, license2.lic
   type    = string
-  default = "./licenses/license-passive.txt"
+  default = "./licenses/za-license-passive.txt"
+}
+
+// license file for the active fgt in Region B
+variable "zb-license-active" {
+  // Change to your own byol license file, license.lic
+  type    = string
+  default = "./licenses/zb-license-active.txt"
+}
+
+// license file for the passive fgt in Region b
+variable "zb-license-passive" {
+  // Change to your own byol license file, license2.lic
+  type    = string
+  default = "./licenses/zb-license-passive.txt"
 }
 
 variable "bootstrap-site" {
@@ -194,7 +218,7 @@ variable "bootstrap-site" {
 }
 
 // license file for the active fgt
-variable "license" {
+variable "license-site" {
   // Change to your own byol license file, license.lic
   type    = string
   default = "./licenses/license-site.txt"
