@@ -6,7 +6,7 @@ resource "azurerm_network_interface" "za-ni-vm-spoke-1" {
 
   ip_configuration {
     name                          = "ipconfig1"
-    subnet_id                     = module.vnet-fgt-regiona.subnets-spoke_ids["spoke1-vm"]
+    subnet_id                     = module.vnet-fgt-regiona.subnets-spokes["n-spoke-vm-1_id"]
     private_ip_address_allocation = "Dynamic"
   }
 
@@ -46,7 +46,7 @@ resource "azurerm_network_interface" "za-ni-vm-spoke-2" {
 
   ip_configuration {
     name                          = "ipconfig1"
-    subnet_id                     = module.vnet-fgt-regiona.subnets-spoke_ids["spoke2-vm"]
+    subnet_id                     = module.vnet-fgt-regiona.subnets-spokes["n-spoke-vm-2_id"]
     private_ip_address_allocation = "Dynamic"
   }
 
@@ -87,7 +87,7 @@ resource "azurerm_network_interface" "zb-ni-vm-spoke-1" {
 
   ip_configuration {
     name                          = "ipconfig1"
-    subnet_id                     = module.vnet-fgt-regionb.subnets-spoke_ids["spoke1-vm"]
+    subnet_id                     = module.vnet-fgt-regionb.subnets-spokes["n-spoke-vm-1_id"]
     private_ip_address_allocation = "Dynamic"
   }
 
@@ -127,7 +127,7 @@ resource "azurerm_network_interface" "zb-ni-vm-spoke-2" {
 
   ip_configuration {
     name                          = "ipconfig1"
-    subnet_id                     = module.vnet-fgt-regionb.subnets-spoke_ids["spoke2-vm"]
+    subnet_id                     = module.vnet-fgt-regionb.subnets-spokes["n-spoke-vm-2_id"]
     private_ip_address_allocation = "Dynamic"
   }
 

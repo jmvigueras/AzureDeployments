@@ -80,7 +80,7 @@ data "template_file" "passiveFortiGate" {
     port4_mask      = cidrnetmask(var.subnets-vnet-fgt_nets["advpn"])
     port4_gw        = cidrhost(var.subnets-vnet-fgt_nets["advpn"],1)
 
-    active_peerip  = cidrhost(var.subnets-vnet-fgt_nets["mgmt"],10)
+    peerip          = cidrhost(var.subnets-vnet-fgt_nets["mgmt"],10)
     tenant          = var.tenant_id
     subscription    = var.subscription_id
     clientid        = var.client_id
@@ -89,15 +89,25 @@ data "template_file" "passiveFortiGate" {
     rsg             = var.resourcegroup_name
     zone-id         = var.zone-id
 
-    vnet-spoke-1_name    = var.vnets-spoke-peer["1_name"]
-    vnet-spoke-1_net     = var.vnets-spoke-peer["1_net"]
-    vnet-spoke-2_name    = var.vnets-spoke-peer["2_name"]
-    vnet-spoke-2_net     = var.vnets-spoke-peer["2_net"]
+    n-spoke-vm-1_name    = var.subnets-spokes["n-spoke-vm-1_name"]
+    n-spoke-vm-1_net     = var.subnets-spokes["n-spoke-vm-1_net"]
+    n-spoke-vm-2_name    = var.subnets-spokes["n-spoke-vm-2_name"]
+    n-spoke-vm-2_net     = var.subnets-spokes["n-spoke-vm-2_net"]
+    n-spoke-rs-1_net     = var.subnets-spokes["n-spoke-rs-1_net"]
 
-    rs-ip1          = cidrhost(var.subnets-spoke-peer["rs_net"],4)
-    rs-ip2          = cidrhost(var.subnets-spoke-peer["rs_net"],5)
-    hub-bgp-asn     = var.fgt-bgp-asn
-    sites-bgp-asn   = var.sites-bgp-asn
+    spoke1-rs-ip1     = cidrhost(var.subnets-spokes["n-spoke-rs-1_net"],4)
+    spoke1-rs-ip2     = cidrhost(var.subnets-spokes["n-spoke-rs-1_net"],5)
+    hub-bgp-asn       = var.fgt-bgp-asn
+    sites-bgp-asn     = var.sites-bgp-asn
+
+    hub-peer-ip1      = var.hub-peer-ip1
+    hub-peer-ip2      = var.hub-peer-ip2
+    hub-peer-bgp-asn  = var.hub-peer-bgp-asn
+
+    hub-vxlan-ip-1    = var.hub-vxlan-ip-1
+    hub-vxlan-ip-2    = var.hub-vxlan-ip-2
+    hub2-vxlan-ip-1   = var.hub2-vxlan-ip-1 
+    hub2-vxlan-ip-2   = var.hub2-vxlan-ip-2
 
     cluster-public-ip         = var.cluster-public-ip_name
     rt-private_name           = var.rt-private_name
@@ -113,5 +123,8 @@ data "template_file" "passiveFortiGate" {
     site-azure-cidr_net       = split("/",var.site-azure-cidr)[0]
     site-azure-cidr_mask      = split("/",var.site-azure-cidr)[1]
     advpn-ipsec-psk           = var.advpn-ipsec-psk
+
+    hub-advpn-public-ip       = var.hub-advpn-public-ip
+    hub-advpn-mpls-ip         = var.hub-advpn-mpls-ip
   }
 }

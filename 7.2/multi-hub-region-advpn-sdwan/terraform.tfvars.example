@@ -4,6 +4,6 @@ client_id       = "xxx-xxx-xxx"
 client_secret   = "xxxxxxxxx"
 tenant_id       = "xxx-xxx-xxx"
 
-prefix = "my-custom-prefix-for-objets-names"
+prefix = "my-custom-prefix"
 advpn-ipsec-psk = "PSK-sample-key"
 

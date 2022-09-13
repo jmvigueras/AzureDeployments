@@ -46,7 +46,6 @@ resource "azurerm_subnet" "subnet-vgw" {
   address_prefixes     = [cidrsubnet(var.vnet-fgt-cidr,4,5)]
 }
 
-
 // Allocated Public IPs
 resource "azurerm_public_ip" "cluster-public-ip" {
   name                = "${var.prefix}-${var.zone-id}-cluster-public-ip"

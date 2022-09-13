@@ -35,6 +35,8 @@ resource "azurerm_virtual_network_gateway" "za-vgw-vnet-fgt" {
   }
 }
 
+/* (Used for simulated MPLS/Expressroute to RegionB from Site)
+
 // Public IP for VGW Zone B FGT
 resource "azurerm_public_ip" "zb-vgw-vnet-fgt-public-ip" {
   name                = "${var.prefix}-zb-vgw-public-ip"
@@ -71,7 +73,7 @@ resource "azurerm_virtual_network_gateway" "zb-vgw-vnet-fgt" {
     asn = 65516
   }
 }
-
+*/
 
 // Public IP for VGW Zone A Site 1
 resource "azurerm_public_ip" "za-vgw-vnet-site-public-ip" {
@@ -137,6 +139,8 @@ resource "azurerm_virtual_network_gateway_connection" "za-cx-vnet-site-vnet-fgt-
     shared_key = var.s2s-ipsec-psk
 }
 
+/* (Used for simulated MPLS/Expressroute to RegionB from Site)
+
 // Connection defintion VNET Site1 to VNET FGT Zone B
 resource "azurerm_virtual_network_gateway_connection" "zb-cx-vnet-site-vnet-fgt-1" {
     name                  = "${var.prefix}-zb-cx-vnet-site-vnet-fgt-1"
@@ -164,4 +168,4 @@ resource "azurerm_virtual_network_gateway_connection" "zb-cx-vnet-site-vnet-fgt-
     shared_key = var.s2s-ipsec-psk
 }
 
-
+*/

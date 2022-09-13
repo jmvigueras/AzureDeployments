@@ -16,7 +16,7 @@ resource "azurerm_route_server" "za-rs-spoke-1" {
   location                         = var.regiona
   sku                              = "Standard"
   public_ip_address_id             = azurerm_public_ip.za-public-ip-rs-spoke-1.id
-  subnet_id                        = module.vnet-fgt-regiona.subnets-spoke_ids["spoke1-rs"]
+  subnet_id                        = module.vnet-fgt-regiona.subnets-spokes["n-spoke-rs-1_id"]
 }
 
 resource "azurerm_route_server_bgp_connection" "za-rs-spoke-1-bgp-fgt-active" {

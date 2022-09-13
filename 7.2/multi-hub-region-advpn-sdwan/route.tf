@@ -42,13 +42,15 @@ resource "azurerm_subnet_route_table_association" "za-privateassociate" {
   route_table_id = azurerm_route_table.za-rt-vnet-fgt-private.id
 }
 
+/* (Route in subnet spoke 1 region A is updated by Azure Router Server)
 resource "azurerm_subnet_route_table_association" "za-spoke1associate" {
-  subnet_id      = module.vnet-fgt-regiona.subnets-spoke_ids["spoke1-vm"]
+  subnet_id      = module.vnet-fgt-regiona.subnets-spokes["n-spoke-vm-1_id"]
   route_table_id = azurerm_route_table.za-rt-vnet-spoke.id
 }
+*/
 
 resource "azurerm_subnet_route_table_association" "za-spoke2associate" {
-  subnet_id      = module.vnet-fgt-regiona.subnets-spoke_ids["spoke2-vm"]
+  subnet_id      = module.vnet-fgt-regiona.subnets-spokes["n-spoke-vm-2_id"]
   route_table_id = azurerm_route_table.za-rt-vnet-spoke.id
 }
 
@@ -97,12 +99,12 @@ resource "azurerm_subnet_route_table_association" "zb-privateassociate" {
 }
 
 resource "azurerm_subnet_route_table_association" "zb-spoke1associate" {
-  subnet_id      = module.vnet-fgt-regionb.subnets-spoke_ids["spoke1-vm"]
+  subnet_id      = module.vnet-fgt-regionb.subnets-spokes["n-spoke-vm-1_id"]
   route_table_id = azurerm_route_table.zb-rt-vnet-spoke.id
 }
 
 resource "azurerm_subnet_route_table_association" "zb-spoke2associate" {
-  subnet_id      = module.vnet-fgt-regionb.subnets-spoke_ids["spoke2-vm"]
+  subnet_id      = module.vnet-fgt-regionb.subnets-spokes["n-spoke-vm-2_id"]
   route_table_id = azurerm_route_table.zb-rt-vnet-spoke.id
 }
 

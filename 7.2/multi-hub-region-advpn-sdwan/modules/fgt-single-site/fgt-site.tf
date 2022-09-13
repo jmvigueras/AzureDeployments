@@ -84,9 +84,11 @@ data "template_file" "siteFortiGate" {
     hubb-bgp-asn    = var.zb-fgt-bgp-asn
     site-bgp-asn    = var.sites-bgp-asn
 
-    spokes-onprem-cidr      = var.spokes-onprem-cidr
     spoke-local-cidr        = var.subnets-site-peer["1_net"]
-    site-azure-cidr         = var.site-azure-cidr
+    n-azure-hubs-cidr       = var.n-azure-hubs-cidr
+    n-azure-hub1-cidr       = var.n-azure-hub1-cidr
+    n-azure-hub2-cidr       = var.n-azure-hub2-cidr
+
     advpn-ipsec-psk         = var.advpn-ipsec-psk
 
     huba-public-local       = var.hub-advpn-ips["huba-public-local"]
@@ -101,8 +103,9 @@ data "template_file" "siteFortiGate" {
     huba-advpn-mpls-ip_1    = var.hub-advpn-ips["huba-advpn-mpls-ip_1"]
     huba-advpn-mpls-ip_2    = var.hub-advpn-ips["huba-advpn-mpls-ip_2"]
 
-    healthcheck-za-srv      = var.healthcheck-srv["healthcheck-za-srv"]
-    healthcheck-zb-srv      = var.healthcheck-srv["healthcheck-zb-srv"]
+    healthcheck-za-srv-1      = var.healthcheck-srv["healthcheck-za-srv-1"]
+    healthcheck-za-srv-2      = var.healthcheck-srv["healthcheck-za-srv-2"]
+    healthcheck-zb-srv-1      = var.healthcheck-srv["healthcheck-zb-srv-1"]
   }
 }
 

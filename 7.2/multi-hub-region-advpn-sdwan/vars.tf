@@ -10,12 +10,12 @@ variable "prefix" {
   default = "terraform"
 }
 
-// ADVPN PSK IPSEC 
+// ADVPN PSK IPSEC Fortinet
 variable "advpn-ipsec-psk" {
   default = "sample-password"
 }
 
-// S2S PSK IPSEC 
+// S2S PSK IPSEC Virtual Network Gateways (MPLS simulation)
 variable "s2s-ipsec-psk" {
   default = "sample-password"
 }
@@ -33,7 +33,7 @@ variable "size" {
   default = "Standard_F4"
 }
 
-//For testing VM
+//For testing VMs
 variable "size-vm" {
   type    = string
   default = "Standard_B1ls"
@@ -149,24 +149,14 @@ variable "vnet-fgt-cidr-regionb" {
   default = "172.31.16.0/20"
 }
 
-// CDIR range /23 for VNET SpokeA in region A
-variable "vnet-spokea-cidr-regiona" {
-  default = "172.31.32.0/23"
+// CDIR agretate range SpokeA and B in region A
+variable "vnet-spokes-cidr-regiona" {
+  default = "172.31.32.0/22"
 }
 
-// CDIR range /23 for VNET SpokeB in region A
-variable "vnet-spokeb-cidr-regiona" {
-  default = "172.31.34.0/23"
-}
-
-// CDIR range /23 for VNET SpokeC in region B
-variable "vnet-spokec-cidr-regionb" {
-  default = "172.31.48.0/23"
-}
-
-// CDIR range /23 for VNET SpokeD in region B
-variable "vnet-spoked-cidr-regionb" {
-  default = "172.31.50.0/23"
+// CDIR agretate range SpokeC and D in region B
+variable "vnet-spokes-cidr-regionb" {
+  default = "172.31.48.0/22"
 }
 
 // Config template for active fortigate member in cluster

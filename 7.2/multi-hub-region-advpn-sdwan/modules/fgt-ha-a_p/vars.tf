@@ -89,11 +89,17 @@ variable "vnets-spoke-peer" {
   }
 }
 
-variable "subnets-spoke-peer" {
+variable "subnets-spokes" {
   type = map(any)
   default = {
-    "rs_name" = "RouteServerSubnet"
-    "rs_net" = "172.31.32.0/23"
+    "n-spoke-vm-1_net"  = "172.31.32.0/24"
+    "n-spoke-vm-2_net"  = "172.31.34.0/24"
+    "n-spoke-rs-1_net"  = "172.31.33.0/27"
+    "n-spoke-rs-2_net"  = "172.31.35.0/27"
+    "n-spoke-vm-1_name" = "subnet-spoke-1"
+    "n-spoke-vm-2_name" = "subnet-spoke-2"
+    "n-spoke-rs-1_name" = "RouteServerSubnet"
+    "n-spoke-rs-2_name" = "RouteServerSubnet"
   }
 }
 
@@ -105,6 +111,26 @@ variable "hub-advpn-public-ip" {
 variable "hub-advpn-mpls-ip" {
   type    = string
   default = "10.10.20.254"
+}
+
+variable "hub-vxlan-ip-1" {
+    type    = string
+    default = "10.10.30.1"
+}
+
+variable "hub-vxlan-ip-2" {
+    type    = string
+    default = "10.10.30.17"
+}
+
+variable "hub2-vxlan-ip-1" {
+    type    = string
+    default = "10.10.30.2"
+}
+
+variable "hub2-vxlan-ip-2" {
+    type    = string
+    default = "10.10.30.18"
 }
 
 variable "hub-peer-ip1" {   

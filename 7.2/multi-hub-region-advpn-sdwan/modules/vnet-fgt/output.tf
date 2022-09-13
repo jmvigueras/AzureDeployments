@@ -104,30 +104,47 @@ output "subnets-vnet-fgt_ids"{
   }
 }
 
-output "subnets-spoke_ids"{
+output "subnets-spokes_ids"{
   value = {
-    "spoke1-vm" = azurerm_subnet.subnet-spoke-1.id
-    "spoke2-vm" = azurerm_subnet.subnet-spoke-2.id
-    "spoke1-rs" = azurerm_subnet.subnet-spoke-1-RouteServerSubnet.id
-    "spoke1-rs" = azurerm_subnet.subnet-spoke-2-RouteServerSubnet.id
+    "n-spoke-vm-1" = azurerm_subnet.subnet-spoke-1.id
+    "n-spoke-vm-2" = azurerm_subnet.subnet-spoke-2.id
+    "n-spoke-rs-1" = azurerm_subnet.subnet-spoke-1-RouteServerSubnet.id
+    "n-spoke-rs-2" = azurerm_subnet.subnet-spoke-2-RouteServerSubnet.id
   }
 }
 
-output "subnets-spoke_names"{
+output "subnets-spokes_names"{
   value = {
-    "spoke1-vm" = azurerm_subnet.subnet-spoke-1.name
-    "spoke2-vm" = azurerm_subnet.subnet-spoke-2.name
-    "spoke1-rs" = azurerm_subnet.subnet-spoke-1-RouteServerSubnet.name
-    "spoke2-rs" = azurerm_subnet.subnet-spoke-2-RouteServerSubnet.name
+    "n-spoke-vm-1" = azurerm_subnet.subnet-spoke-1.name
+    "n-spoke-vm-2" = azurerm_subnet.subnet-spoke-2.name
+    "n-spoke-rs-1" = azurerm_subnet.subnet-spoke-1-RouteServerSubnet.name
+    "n-spoke-rs-2" = azurerm_subnet.subnet-spoke-2-RouteServerSubnet.name
   }
 }
 
-output "subnets-spoke_nets"{
+output "subnets-spokes_nets"{
   value = {
-    "spoke1-vm" = azurerm_subnet.subnet-spoke-1.address_prefixes[0]
-    "spoke2-vm" = azurerm_subnet.subnet-spoke-2.address_prefixes[0]
-    "spoke1-rs" = azurerm_subnet.subnet-spoke-1-RouteServerSubnet.address_prefixes[0]
-    "spoke2-rs" = azurerm_subnet.subnet-spoke-2-RouteServerSubnet.address_prefixes[0]
+    "n-spoke-vm-1" = azurerm_subnet.subnet-spoke-1.address_prefixes[0]
+    "n-spoke-vm-2" = azurerm_subnet.subnet-spoke-2.address_prefixes[0]
+    "n-spoke-rs-1" = azurerm_subnet.subnet-spoke-1-RouteServerSubnet.address_prefixes[0]
+    "n-spoke-rs-1" = azurerm_subnet.subnet-spoke-2-RouteServerSubnet.address_prefixes[0]
+  }
+}
+
+output "subnets-spokes" {
+  value = {
+    "n-spoke-vm-1_net" = azurerm_subnet.subnet-spoke-1.address_prefixes[0]
+    "n-spoke-vm-2_net" = azurerm_subnet.subnet-spoke-2.address_prefixes[0]
+    "n-spoke-rs-1_net" = azurerm_subnet.subnet-spoke-1-RouteServerSubnet.address_prefixes[0]
+    "n-spoke-rs-2_net" = azurerm_subnet.subnet-spoke-2-RouteServerSubnet.address_prefixes[0]
+    "n-spoke-vm-1_name" = azurerm_subnet.subnet-spoke-1.name
+    "n-spoke-vm-2_name" = azurerm_subnet.subnet-spoke-2.name
+    "n-spoke-rs-1_name" = azurerm_subnet.subnet-spoke-1-RouteServerSubnet.name
+    "n-spoke-rs-2_name" = azurerm_subnet.subnet-spoke-2-RouteServerSubnet.name
+    "n-spoke-vm-1_id" = azurerm_subnet.subnet-spoke-1.id
+    "n-spoke-vm-2_id" = azurerm_subnet.subnet-spoke-2.id
+    "n-spoke-rs-1_id" = azurerm_subnet.subnet-spoke-1-RouteServerSubnet.id
+    "n-spoke-rs-2_id" = azurerm_subnet.subnet-spoke-2-RouteServerSubnet.id
   }
 }
 

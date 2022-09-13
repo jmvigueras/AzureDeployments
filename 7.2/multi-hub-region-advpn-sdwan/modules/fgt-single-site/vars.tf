@@ -51,7 +51,7 @@ variable "subnets-vnet-fgt_nets" {
 variable "subnets-site-peer" {
   type = map(any)
   default = {
-    "1_name" = "vnet-site-spokea"
+    "1_name" = "vnet-site-spoke1"
     "1_net"  = "192.168.10.0/24"
   }
 }
@@ -63,21 +63,22 @@ variable "hub-advpn-ips" {
     "hubb-advpn-public-ip"  = "0.0.0.0/0"
     "huba-advpn-mpls-ip_1"  = "172.31.4.10"
     "huba-advpn-mpls-ip_2"  = "172.31.4.11"
-    "huba-mpls-local-1"     = "10.10.10.1"
-    "huba-mpls-local-2"     = "10.10.10.2"
-    "huba-mpls-remote"      = "10.10.10.254"
-    "huba-public-local"     = "10.10.20.1"
-    "huba-public-remote"    = "10.10.20.254"
-    "hubb-public-local"     = "10.10.20.2"
-    "hubb-public-remote"    = "10.10.20.253"
+    "huba-mpls-local-1"     = "10.10.20.1"
+    "huba-mpls-local-2"     = "10.10.20.2"
+    "huba-mpls-remote"      = "10.10.20.254"
+    "huba-public-local"     = "10.10.10.1"
+    "huba-public-remote"    = "10.10.10.254"
+    "hubb-public-local"     = "10.10.10.2"
+    "hubb-public-remote"    = "10.10.10.253"
   }
 }
 
 variable "healthcheck-srv" {
   type = map(any)
   default = {
-    "healthcheck-huba-srv"  = "172.31.32.4"
-    "healthcheck-hubb-srv"  = "172.31.48.4"
+    "healthcheck-huba-srv-1"  = "172.31.32.4"
+    "healthcheck-huba-srv-2"  = "172.31.34.4"
+    "healthcheck-hubb-srv-1"  = "172.31.48.4"
   }
 }
 
@@ -95,8 +96,16 @@ variable "spokes-onprem-cidr" {
   default = "192.168.0.0/16"
 }
 
-variable "site-azure-cidr" {
+variable "n-azure-hubs-cidr" {
   default = "172.31.0.0/16"
+}
+
+variable "n-azure-hub1-cidr"{
+  default = "172.31.32.0/22"
+}
+
+variable "n-azure-hub2-cidr"{
+  default = "172.31.48.0/22"
 }
 
 // ADVPN PSK IPSEC 
